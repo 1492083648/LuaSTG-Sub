@@ -63,7 +63,7 @@ namespace luastg::binding {
 			auto const y = ctx.get_value<float>(1 + 2);
 			auto const width = ctx.get_value<float>(1 + 3);
 			auto const height = ctx.get_value<float>(1 + 4);
-			self->data->setTextureRect(core::RectF(x, y, x + width, x + height));
+			self->data->setTextureRect(core::RectF(x, y, x + width, y + height));
 			return 0;
 		}
 		static int getTextureRect(lua_State* vm) {
@@ -124,7 +124,7 @@ namespace luastg::binding {
 					return luaL_error(vm, "create Sprite failed");
 				}
 				self->data->setTexture(texture->data);
-				self->data->setTextureRect(core::RectF(x, y, x + width, x + height));
+				self->data->setTextureRect(core::RectF(x, y, x + width, y + height));
 				self->data->setTextureCenter(core::Vector2F(center_x, center_y));
 				self->data->setUnitsPerPixel(unit_per_pixel);
 			}
@@ -135,7 +135,7 @@ namespace luastg::binding {
 					return luaL_error(vm, "create Sprite failed");
 				}
 				self->data->setTexture(texture->data);
-				self->data->setTextureRect(core::RectF(x, y, x + width, x + height));
+				self->data->setTextureRect(core::RectF(x, y, x + width, y + height));
 				self->data->setUnitsPerPixel(unit_per_pixel);
 			}
 			return 1;
